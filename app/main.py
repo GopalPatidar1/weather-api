@@ -7,7 +7,7 @@ from app.api.routes import weather
 app = FastAPI()
 
 @app.middleware("http")
-async def log_requests(request, call_next):
+async def auth_and_cors(request, call_next):
     public_routes = [
         '/docs',
         '/openapi.json',
