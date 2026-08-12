@@ -9,7 +9,7 @@ WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
 redisClient = redis.redis_client
 
-httpClient = httpx.AsyncClient()
+httpClient = httpx.AsyncClient(timeout=5)  # Set a timeout of 5 seconds for HTTP requests
 
 async def getWeather(city: str = 'Dewas, MP, India'):
     try:
